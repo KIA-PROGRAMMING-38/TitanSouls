@@ -24,10 +24,19 @@ public class PlayerMovement : MonoBehaviour
         _animator.SetFloat("Horizontal", Horizontal);
         _animator.SetFloat("Vertical", Vertical);
 
-        if (Input.GetAxisRaw("Horizontal") == 1 || Input.GetAxisRaw("Horizontal") == -1 || Input.GetAxisRaw("Vertical") == 1 || Input.GetAxisRaw("Vertical") == -1)
+        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow))
         {
-            _animator.SetFloat("StayHorizontal", Input.GetAxisRaw("Horizontal"));
-            _animator.SetFloat("StayVertical", Input.GetAxisRaw("Vertical"));
+            _animator.SetBool("IsMove", true);
+        }
+
+        else
+        {
+            _animator.SetBool("IsMove", false);
+        }
+
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            _animator.SetTrigger("IsInputX");
         }
     }
 

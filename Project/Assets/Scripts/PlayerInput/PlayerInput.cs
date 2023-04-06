@@ -25,6 +25,7 @@ public class PlayerInput : MonoBehaviour
         _inputVec.x = Input.GetAxisRaw("Horizontal");
         _inputVec.y = Input.GetAxisRaw("Vertical");
 
+
         Vector2 moveVec = _inputVec.normalized * _speed * Time.fixedDeltaTime;        
         _rigid.MovePosition(_rigid.position + moveVec);
     }
