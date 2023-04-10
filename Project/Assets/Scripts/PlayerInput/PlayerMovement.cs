@@ -34,6 +34,17 @@ public class PlayerMovement : MonoBehaviour
             _animator.SetBool("IsMove", false);
         }
 
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            _animator.SetBool("IsInputX", true);
+        }
+
+        if (Input.GetKeyUp(KeyCode.X))
+        {
+            _animator.SetBool("IsInputX", false);
+        }
+
+
     }
 
     private void Move()

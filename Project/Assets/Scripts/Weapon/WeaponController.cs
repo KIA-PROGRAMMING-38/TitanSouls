@@ -3,28 +3,30 @@ using UnityEngine;
 public class WeaponController : MonoBehaviour
 {
     public GameObject ArrowPrefab;
-    public float arrowSpeed = 10f;
+    public float _arrowSpeed = 10f;
 
-    private bool canFire = true;
-    private bool arrowFired = false;
-    private Rigidbody2D playerRigidbody;
+    private bool _canFire = true;
+    private bool _arrowFired = false;
+    private Rigidbody2D _playerRigidbody;
     private Vector2 arrowDirection;
-    private GameObject arrowInstance;
+    private GameObject ArrowInstance;
+    public GameObject Player;
+    public GameObject Weapon;
 
     private void Start()
     {
-        playerRigidbody = GetComponent<Rigidbody2D>();
+        _playerRigidbody = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.C))
         {
-            if (canFire)
+            if (_canFire)
             {
                 FireArrow();
             }
-            else if (arrowFired)
+            else if (_arrowFired)
             {
                 ReturnArrow();
             }
@@ -35,29 +37,29 @@ public class WeaponController : MonoBehaviour
     {
         if (arrowDirection != Vector2.zero)
         {
-            playerRigidbody.velocity = arrowDirection.normalized * arrowSpeed;
+            _playerRigidbody.velocity = arrowDirection.normalized * _arrowSpeed;
         }
     }
 
     private void FireArrow()
     {
-        canFire = false;
-        arrowFired = true;
+        _canFire = false;
+        _arrowFired = true;
 
-        arrowInstance = Instantiate(ArrowPrefab, transform.position, Quaternion.identity);
-        arrowDirection = transform.right;
-        arrowInstance.GetComponent<Rigidbody2D>().velocity = arrowDirection * arrowSpeed;
+        ArrowInstance = Instantiate(ArrowPrefab, Player.transform.position, Quaternion.identity);
+        arrowDirection = Vector2.MoveTowards(Weapon.transform.position, Player.transform.position, _arrowSpeed);
+        ArrowInstance.GetComponent<Rigidbody2D>().velocity = arrowDirection * _arrowSpeed;
     }
 
     private void ReturnArrow()
     {
-        canFire = true;
-        arrowFired = false;
+        _canFire = true;
+        _arrowFired = false;
 
-        arrowDirection = -transform.right;
-        arrowInstance.GetComponent<Rigidbody2D>().velocity = arrowDirection * arrowSpeed;
+        arrowDirection =- Vector2.MoveTowards(Weapon.transform.position, Player.transform.position, _arrowSpeed);
+        ArrowInstance.GetComponent<Rigidbody2D>().velocity = arrowDirection * _arrowSpeed;
 
-        arrowInstance.GetComponent<Collider2D>().isTrigger = true;
-        arrowInstance.transform.SetParent(transform);
+        ArrowInstance.GetComponent<Collider2D>().isTrigger = true;
+        ArrowInstance.transform.SetParent(Player.transform);
     }
 }
