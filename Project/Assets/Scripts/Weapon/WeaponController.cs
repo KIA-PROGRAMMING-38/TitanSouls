@@ -22,7 +22,6 @@ public class WeaponController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.C))
         {
-
             if (_canFire)
             {
                 FireArrow();
@@ -47,7 +46,7 @@ public class WeaponController : MonoBehaviour
         _canFire = false;
         _arrowFired = true;
 
-        ArrowInstance = Instantiate(ArrowPrefab, transform.position, Quaternion.identity);
+        ArrowInstance = Instantiate(ArrowPrefab, Player.transform.position, Quaternion.identity);
         arrowDirection = Vector2.MoveTowards(Weapon.transform.position, Player.transform.position, _arrowSpeed);
         ArrowInstance.GetComponent<Rigidbody2D>().velocity = arrowDirection * _arrowSpeed;
     }
@@ -61,6 +60,6 @@ public class WeaponController : MonoBehaviour
         ArrowInstance.GetComponent<Rigidbody2D>().velocity = arrowDirection * _arrowSpeed;
 
         ArrowInstance.GetComponent<Collider2D>().isTrigger = true;
-        ArrowInstance.transform.SetParent(transform);
+        ArrowInstance.transform.SetParent(Player.transform);
     }
 }
