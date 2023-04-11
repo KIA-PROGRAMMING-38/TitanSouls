@@ -23832,7 +23832,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7403129a55bda484585a3d7ec171c8f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ArrowPrefab: {fileID: 873912512396825952, guid: 938bcb90b8332fb4f844a354e90e7185, type: 3}
   _arrowSpeed: 10
   Player: {fileID: 1590324524}
   Weapon: {fileID: 1098865561}
@@ -44521,7 +44520,6 @@ GameObject:
   - component: {fileID: 1590324530}
   - component: {fileID: 1590324532}
   - component: {fileID: 1590324533}
-  - component: {fileID: 1590324534}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -44715,24 +44713,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!255 &1590324534
-FixedJoint2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1590324524}
-  m_Enabled: 1
-  serializedVersion: 4
-  m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 0}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_AutoConfigureConnectedAnchor: 1
-  m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -2.48, y: -11.19}
-  m_DampingRatio: 0
-  m_Frequency: 0
 --- !u!1 &1761192490
 GameObject:
   m_ObjectHideFlags: 0
