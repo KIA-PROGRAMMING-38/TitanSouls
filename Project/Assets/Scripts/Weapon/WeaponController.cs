@@ -2,14 +2,13 @@ using UnityEngine;
 
 public class WeaponController : MonoBehaviour
 {
-    public GameObject ArrowPrefab;
     public float _arrowSpeed = 10f;
 
     private bool _canFire = true;
     private bool _arrowFired = false;
     private Rigidbody2D _playerRigidbody;
     private Vector2 arrowDirection;
-    private GameObject ArrowInstance;
+
     public GameObject Player;
     public GameObject Weapon;
 
@@ -46,9 +45,7 @@ public class WeaponController : MonoBehaviour
         _canFire = false;
         _arrowFired = true;
 
-        ArrowInstance = Instantiate(ArrowPrefab, Player.transform.position, Quaternion.identity);
         arrowDirection = Vector2.MoveTowards(Weapon.transform.position, Player.transform.position, _arrowSpeed);
-        ArrowInstance.GetComponent<Rigidbody2D>().velocity = arrowDirection * _arrowSpeed;
     }
 
     private void ReturnArrow()
@@ -57,9 +54,5 @@ public class WeaponController : MonoBehaviour
         _arrowFired = false;
 
         arrowDirection =- Vector2.MoveTowards(Weapon.transform.position, Player.transform.position, _arrowSpeed);
-        ArrowInstance.GetComponent<Rigidbody2D>().velocity = arrowDirection * _arrowSpeed;
-
-        ArrowInstance.GetComponent<Collider2D>().isTrigger = true;
-        ArrowInstance.transform.SetParent(Player.transform);
     }
 }
