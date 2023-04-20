@@ -42,16 +42,16 @@ public class WeaponController : MonoBehaviour
 
     private void FireArrow()
     {
-        _canFire = false;
-        _arrowFired = true;
+        _canFire = true;
+        _arrowFired = false;
 
         arrowDirection = Vector2.MoveTowards(Weapon.transform.position, Player.transform.position, _arrowSpeed);
     }
 
     private void ReturnArrow()
     {
-        _canFire = true;
-        _arrowFired = false;
+        _canFire = false;
+        _arrowFired = true;
 
         arrowDirection =- Vector2.MoveTowards(Weapon.transform.position, Player.transform.position, _arrowSpeed);
     }
