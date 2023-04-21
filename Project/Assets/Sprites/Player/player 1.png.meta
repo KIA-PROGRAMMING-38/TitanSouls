@@ -369,7 +369,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_12
+      name: Player_Die_Right
       rect:
         serializedVersion: 2
         x: 192
@@ -915,7 +915,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_38
+      name: Player_Die_Back
       rect:
         serializedVersion: 2
         x: 192
@@ -1566,7 +1566,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_69
+      name: Player_Die_Left
       rect:
         serializedVersion: 2
         x: 192
@@ -2175,7 +2175,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_98
+      name: Player_Die_Front
       rect:
         serializedVersion: 2
         x: 192
@@ -2784,7 +2784,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_127
+      name: Player_Die_FrontRight
       rect:
         serializedVersion: 2
         x: 192
@@ -3162,7 +3162,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_145
+      name: Player_Die_FrontLeft
       rect:
         serializedVersion: 2
         x: 192
@@ -3540,7 +3540,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_163
+      name: Player_Die_BackLeft
       rect:
         serializedVersion: 2
         x: 192
@@ -3939,7 +3939,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_182
+      name: Player_Die_BackRight
       rect:
         serializedVersion: 2
         x: 192
@@ -11764,6 +11764,14 @@ TextureImporter:
       .: -1057170309
       .1: -273225500
       0: 933370496
+      Player_Die_Back: 1500007210
+      Player_Die_BackLeft: 2057534459
+      Player_Die_BackRight: 1428855985
+      Player_Die_Front: 1624302937
+      Player_Die_FrontLeft: 130305621
+      Player_Die_FrontRight: 1077920400
+      Player_Die_Left: 32886099
+      Player_Die_Right: -747560900
       Player_Draw_Bow_Back: 301101904
       Player_Draw_Bow_BackLeft: -1868759481
       Player_Draw_Bow_BackRight: 1863618144
@@ -11804,7 +11812,6 @@ TextureImporter:
       player_117: -198104366
       player_118: -1209892322
       player_119: -138048329
-      player_12: -747560900
       player_120: 1412001086
       player_121: 995093132
       player_122: 781726915
@@ -11812,7 +11819,6 @@ TextureImporter:
       player_124: -1198115365
       player_125: 1089034064
       player_126: -1365412587
-      player_127: 1077920400
       player_130: -613918982
       player_131: -2145991651
       player_132: -52142023
@@ -11828,7 +11834,6 @@ TextureImporter:
       player_142: -349366714
       player_143: 803947457
       player_144: -1665570382
-      player_145: 130305621
       player_148: 1157291658
       player_149: -964598030
       player_15: 467763509
@@ -11846,7 +11851,6 @@ TextureImporter:
       player_160: -1232433582
       player_161: 1294960460
       player_162: 1623442441
-      player_163: 2057534459
       player_166: -1511507655
       player_167: 1109483534
       player_168: -241397988
@@ -11865,7 +11869,6 @@ TextureImporter:
       player_18: -1601887006
       player_180: 1481891885
       player_181: 315090131
-      player_182: 1428855985
       player_185: -1691709629
       player_186: 1220945296
       player_187: 1637717338
@@ -12031,7 +12034,6 @@ TextureImporter:
       player_377: 2028461334
       player_378: 26631360
       player_379: -1581863866
-      player_38: 1500007210
       player_380: 1709951491
       player_381: 1511908943
       player_382: -1616939828
@@ -12237,7 +12239,6 @@ TextureImporter:
       player_66: 328770746
       player_67: -640198472
       player_68: 189466729
-      player_69: 32886099
       player_7: 1984583519
       player_72: 1715648405
       player_73: -2011758610
@@ -12267,7 +12268,6 @@ TextureImporter:
       player_95: 2037345210
       player_96: 2115914339
       player_97: -15525212
-      player_98: 1624302937
       player_backleft_0: -1876576856
       player_backleft_1: 1502774861
       player_backleft_2: 1749197534

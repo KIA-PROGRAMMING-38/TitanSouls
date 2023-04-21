@@ -23797,7 +23797,6 @@ GameObject:
   - component: {fileID: 1098865566}
   - component: {fileID: 1098865565}
   - component: {fileID: 1098865564}
-  - component: {fileID: 1098865563}
   m_Layer: 0
   m_Name: Weapon
   m_TagString: Untagged
@@ -23820,21 +23819,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
---- !u!114 &1098865563
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1098865561}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7403129a55bda484585a3d7ec171c8f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _arrowSpeed: 10
-  Player: {fileID: 1590324524}
-  Weapon: {fileID: 1098865561}
 --- !u!70 &1098865564
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -23941,7 +23925,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1185508655
 Transform:
   m_ObjectHideFlags: 0
@@ -44646,7 +44630,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InputVec: {x: 0, y: 0}
-  speed: 5
   runspeed: 8
 --- !u!114 &1590324530
 MonoBehaviour:
@@ -44690,6 +44673,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33934c730086cc84e82c626a13f1f618, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _motionVec: {x: 0, y: 0}
+  speed: 5
 --- !u!95 &1590324533
 Animator:
   serializedVersion: 5
