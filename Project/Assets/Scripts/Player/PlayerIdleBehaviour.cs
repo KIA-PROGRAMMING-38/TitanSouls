@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class PlayerIdleBehaviour : StateMachineBehaviour
 {
-    private bool isGetArrow = true; // 화살을 가지고 있는지 아닌지를 저장
+    private PlayerController controller;
+    private Weapon _weapon;
 
     // 첫 번째 업데이트 프레임에서 호출
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        controller = animator.GetComponent<PlayerController>();
         // base.OnStateEnter(animator, stateInfo, layerIndex);
+        _weapon = controller.weapon.GetComponent<Weapon>();
     }
 
     // 첫 번째 프레임과 마지막 프레임을 제외한 각 업데이트 프레임에서 호출
@@ -20,9 +23,14 @@ public class PlayerIdleBehaviour : StateMachineBehaviour
             animator.SetTrigger("Roll");
         }
 
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKey(KeyCode.C) && _weapon.isGetArrow == true)
         {
             animator.SetBool("Aiming", true);
+        }
+
+        if (Input.GetKey(KeyCode.C) && _weapon.isGetArrow == false)
+        {
+            animator.SetBool("Retrieve", true);
         }
     }
 
