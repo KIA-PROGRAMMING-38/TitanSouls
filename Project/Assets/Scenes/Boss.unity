@@ -44660,10 +44660,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   motionVec: {x: 0, y: 0}
   lookDirection: {x: 0, y: 0}
-  speed: 5
-  runSpeed: 8
-  horizontal: 0
-  vertical: 0
+  speed: 3
+  normalSpeed: 3
+  runSpeed: 7
 --- !u!95 &1590324533
 Animator:
   serializedVersion: 5
