@@ -6,7 +6,7 @@ public class PlayerRollBehaviour : StateMachineBehaviour
 {
     private Rigidbody2D _rigidBody;
     private PlayerController playerController;
-    private float force = 50.0f;
+    private float force = 35.0f;
 
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {

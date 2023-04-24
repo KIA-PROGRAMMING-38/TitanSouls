@@ -14,9 +14,7 @@ public class PlayerController : MonoBehaviour
     public Vector2 motionVec;
     public Vector2 lookDirection = new Vector2(0, 0); // 플레이어가 바라보는 방향 지정
     public float speed;
-    public float runSpeed;
-    public float horizontal;
-    public float vertical;
+    [SerializeField] float normalSpeed, runSpeed;
 
     private void Awake()
     {
@@ -27,7 +25,6 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {   
         ProcessMove();
-        PlayerRun();
     }
 
     private void Update()
@@ -37,8 +34,18 @@ public class PlayerController : MonoBehaviour
     
     public void ProcessMove()
     {
-        horizontal = Input.GetAxisRaw("Horizontal");
-        vertical = Input.GetAxisRaw("Vertical");
+        if (Input.GetKey(KeyCode.X))
+        {
+            speed = runSpeed;
+        }
+        
+        else
+        {
+            speed = normalSpeed;
+        }
+
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
         motionVec = new Vector2(horizontal, vertical);
 
         if (horizontal != 0f || vertical != 0f)
@@ -55,20 +62,5 @@ public class PlayerController : MonoBehaviour
         _animator.SetFloat("Look X", lookDirection.x);
         _animator.SetFloat("Look Y", lookDirection.y);
         _animator.SetFloat("Speed", _rigidbody.velocity.sqrMagnitude);
-    }
-
-    private void Run()
-    {
-        Vector2 runPosition = _rigidbody.position;
-        runPosition = runPosition + motionVec * runSpeed * Time.fixedDeltaTime;
-        _rigidbody.MovePosition(runPosition);
-    }
-
-    private void PlayerRun()
-    {
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            Run();
-        }
     }
 }
