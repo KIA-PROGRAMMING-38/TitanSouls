@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class PlayerIdleBehaviour : StateMachineBehaviour
 {
+
     private PlayerController controller;
     private Weapon _weapon;
+
 
     // 첫 번째 업데이트 프레임에서 호출
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

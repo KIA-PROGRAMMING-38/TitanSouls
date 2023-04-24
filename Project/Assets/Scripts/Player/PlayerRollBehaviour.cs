@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerRollBehaviour : StateMachineBehaviour
 {
     private Rigidbody2D _rigidBody;
+
     private PlayerController _playerController;
     private float force = 35.0f; // 플레이어의 구르는 힘 지정
 
@@ -17,7 +18,11 @@ public class PlayerRollBehaviour : StateMachineBehaviour
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+
         _rigidBody.AddForce(_playerController.lookDirection * force); // 플레이어의 방향대로 구른다    
+
+        _rigidBody.AddForce(_playerController.lookDirection * force);     
+
     }
 
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
