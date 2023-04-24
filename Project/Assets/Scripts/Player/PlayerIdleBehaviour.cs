@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerIdleBehaviour : StateMachineBehaviour
 {
+    private bool isGetArrow = true; // 화살을 가지고 있는지 아닌지를 저장
+
     // 첫 번째 업데이트 프레임에서 호출
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {

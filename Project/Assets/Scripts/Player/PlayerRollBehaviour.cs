@@ -6,7 +6,7 @@ public class PlayerRollBehaviour : StateMachineBehaviour
 {
     private Rigidbody2D _rigidBody;
     private PlayerController playerController;
-    private float force = 35.0f;
+    private float force = 35.0f; // 플레이어의 구르는 힘 지정
 
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -17,7 +17,7 @@ public class PlayerRollBehaviour : StateMachineBehaviour
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        _rigidBody.AddForce(playerController.lookDirection * force);     
+        _rigidBody.AddForce(playerController.lookDirection * force); // 플레이어의 방향대로 구른다    
     }
 
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
