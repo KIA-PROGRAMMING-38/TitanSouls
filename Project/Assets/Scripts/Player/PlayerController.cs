@@ -10,18 +10,11 @@ public class PlayerController : MonoBehaviour
 {
     private Animator _animator;
     private Rigidbody2D _rigidbody;
-
-
-    public GameObject weapon;
+    
     public Vector2 motionVec;
     public Vector2 lookDirection = new Vector2(0, 0); // 플레이어가 바라보는 방향 지정
-    [SerializeField] float normalSpeed, runSpeed;
     public float speed;
-
-    private void Start()
-    {
-        weapon.SetActive(false);
-    }
+    [SerializeField] float normalSpeed, runSpeed;
 
     private void Awake()
     {
@@ -36,12 +29,9 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.C))
-        {
-            GameObject.Find("WeaponParent").transform.Find("Weapon").gameObject.SetActive(true);
-        }
-    }
 
+    }
+    
     public void ProcessMove()
     {
         if (Input.GetKey(KeyCode.X))
