@@ -19,12 +19,6 @@ public class WeaponController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.C) && isGetArrow == true)
-        {
-            isGetArrow = false;
-            _rigidBody.AddForce(_playerController.lookDirection * _arrowForce);
-        }
-
         //if (Input.GetKeyUp(KeyCode.C) && isGetArrow == false)
         //{
         //    isGetArrow = true;
@@ -34,11 +28,12 @@ public class WeaponController : MonoBehaviour
 
     void ShootArrow() // น฿ป็
     {
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.C) && isGetArrow == true)
         {
             if (Time.time > 2.0)
             {
-
+                isGetArrow = false;
+                _rigidBody.AddForce(_playerController.lookDirection * _arrowForce);
             }
 
             else if (Time.time < 2.0)
