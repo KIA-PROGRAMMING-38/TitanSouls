@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Weapon : MonoBehaviour
+public class WeaponController : MonoBehaviour
 {
     private PlayerController _playerController;
     private Rigidbody2D _rigidBody;
-    private float _arrowForce = 120.0f;
+    private float _arrowForce; // 화살의 최소치, 최대치
 
     public GameObject Player;
     public bool isGetArrow = true; // 화살을 가지고 있는지 아닌지
@@ -30,7 +30,23 @@ public class Weapon : MonoBehaviour
         //    isGetArrow = true;
         //    _rigidBody.AddForce(_playerController.lookDirection * -1 * _arrowForce);
         //}
-    } 
+    }
+
+    void ShootArrow() // 발사
+    {
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            if (Time.time > 2.0)
+            {
+
+            }
+
+            else if (Time.time < 2.0)
+            {
+
+            }
+        }
+    }
 
     // 화살의 힘의 최대치, 최소치를 정한다.
     public void Shoot()

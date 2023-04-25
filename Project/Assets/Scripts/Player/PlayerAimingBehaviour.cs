@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class PlayerAimingBehaviour : StateMachineBehaviour
 {
-    Weapon weapon;
 
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        weapon = animator.GetComponent<Weapon>();
+        // weapon = animator.GetComponent<Weapon>();
     }
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

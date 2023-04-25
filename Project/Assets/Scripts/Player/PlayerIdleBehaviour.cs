@@ -6,7 +6,7 @@ public class PlayerIdleBehaviour : StateMachineBehaviour
 {
 
     private PlayerController controller;
-    private Weapon _weapon;
+    private WeaponController _weapon;
 
 
     // 첫 번째 업데이트 프레임에서 호출
@@ -14,7 +14,7 @@ public class PlayerIdleBehaviour : StateMachineBehaviour
     {
         controller = animator.GetComponent<PlayerController>();
         // base.OnStateEnter(animator, stateInfo, layerIndex);
-        _weapon = controller.weapon.GetComponent<Weapon>();
+        _weapon = controller.weapon.GetComponent<WeaponController>();
     }
 
     // 첫 번째 프레임과 마지막 프레임을 제외한 각 업데이트 프레임에서 호출

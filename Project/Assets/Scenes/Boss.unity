@@ -168,6 +168,38 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &169500549
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 169500550}
+  m_Layer: 0
+  m_Name: WeaponParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &169500550
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 169500549}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.022480726, y: 0.25857735, z: 0.49562326}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1098865562}
+  m_Father: {fileID: 1590324528}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &228376959
 GameObject:
   m_ObjectHideFlags: 0
@@ -23813,12 +23845,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1098865561}
   m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
-  m_LocalPosition: {x: -2.5, y: -10.69, z: 0}
+  m_LocalPosition: {x: -0.042480707, y: 0.24142265, z: -0.49562326}
   m_LocalScale: {x: 0.8832, y: 0.8832, z: 0.8832}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_Father: {fileID: 169500550}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!70 &1098865564
 CapsuleCollider2D:
@@ -23922,6 +23954,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1590324524}
+  isGetArrow: 1
 --- !u!1 &1185508654
 GameObject:
   m_ObjectHideFlags: 0
@@ -44626,6 +44659,7 @@ Transform:
   m_Children:
   - {fileID: 519420032}
   - {fileID: 1185508655}
+  - {fileID: 169500550}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -44641,12 +44675,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33934c730086cc84e82c626a13f1f618, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weapon: {fileID: 0}
   motionVec: {x: 0, y: 0}
   lookDirection: {x: 0, y: 0}
-  speed: 5
+  normalSpeed: 0
   runSpeed: 8
-  horizontal: 0
-  vertical: 0
+  speed: 5
 --- !u!95 &1590324533
 Animator:
   serializedVersion: 5
