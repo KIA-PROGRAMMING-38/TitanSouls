@@ -1,11 +1,10 @@
+using AnimId;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerIdleBehaviour : StateMachineBehaviour
 {
-    private bool isGetArrow = true; // 화살을 가지고 있는지 아닌지를 저장
-
     // 첫 번째 업데이트 프레임에서 호출
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -17,12 +16,7 @@ public class PlayerIdleBehaviour : StateMachineBehaviour
     {
         if (Input.GetKeyDown(KeyCode.X))
         {
-            animator.SetTrigger("Roll");
-        }
-
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            animator.SetBool("Aiming", true);
+            animator.SetTrigger(PlayerAnimId.s_Roll);
         }
     }
 

@@ -19,10 +19,4 @@ public class PlayerRollBehaviour : StateMachineBehaviour
     {
         _rigidBody.AddForce(playerController.lookDirection * force); // 플레이어의 방향대로 구른다    
     }
-
-    override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-        
-    }
-
 }

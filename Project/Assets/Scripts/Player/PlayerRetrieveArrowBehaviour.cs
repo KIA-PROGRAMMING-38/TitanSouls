@@ -1,59 +1,58 @@
 using AnimId;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAimingBehaviour : StateMachineBehaviour
+public class PlayerRetrieveArrowBehaviour : StateMachineBehaviour
 {
     private PlayerController _controller;
+    private float _pullingPower = 5.0f;
     private Vector3 _leftVec = new Vector3(-1, 0, 0);
     private Vector3 _rightVec = new Vector3(1, 0, 0);
     private Vector3 _upVec = new Vector3(0, 1, 0);
     private Vector3 _downVec = new Vector3(0, -1, 0);
-    private float _chargingTime;
-    private float _currentPower;
+    private Vector3 _arrowDirection;
 
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        _controller = animator.GetComponent<PlayerController>();
-        _chargingTime = 0f;
-        _currentPower = 0f;
+        _controller = animator.GetComponent<PlayerController>(); 
     }
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (Input.GetKeyUp(KeyCode.C) && _controller.isGetArrow)
+        if (Input.GetKey(KeyCode.C) && _controller.isGetArrow == false)
         {
             Arrow arrow = _controller.Arrow;
+            arrow.IsRejection = false;
 
             if (_controller.lookDirection == _leftVec)
-            {
-                arrow.transform.rotation = Quaternion.Euler(0, 0, 270);
-            }
-
-            if (_controller.lookDirection == _rightVec)
             {
                 arrow.transform.rotation = Quaternion.Euler(0, 0, 90);
             }
 
-            if (_controller.lookDirection == _upVec)
+            if (_controller.lookDirection == _rightVec)
             {
-                arrow.transform.rotation = Quaternion.Euler(0, 0, 180);
+                arrow.transform.rotation = Quaternion.Euler(0, 0, 270);
             }
 
             if (_controller.lookDirection == _downVec)
             {
+                arrow.transform.rotation = Quaternion.Euler(0, 0, 180);
+            }
+
+            if (_controller.lookDirection == _upVec)
+            {
                 arrow.transform.rotation = Quaternion.Euler(0, 0, 0);
             }
 
-            arrow.ShootArrow(_controller.lookDirection, _currentPower); 
-            animator.SetTrigger(PlayerAnimId.s_Shoot);
-            _controller.isGetArrow = false;
+            // 플레이어의 위치 - 화살의 위치
+            _arrowDirection = _controller.gameObject.transform.position - arrow.transform.position;
+            arrow.GetBackArrow(_arrowDirection, _pullingPower);
+            animator.SetTrigger(PlayerAnimId.s_Retrieve);
+            _controller.isGetArrow = true;
 
             return;
-        }
-
-        _currentPower = Mathf.Lerp(0f, _controller.MaxPower, _chargingTime / _controller.ChargingDuration);
-        _chargingTime += Time.deltaTime;
+        }      
     }
 }
