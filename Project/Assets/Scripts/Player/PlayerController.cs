@@ -8,9 +8,10 @@ using UnityEngine.InputSystem.XR;
 
 public class PlayerController : MonoBehaviour
 {
-    private Animator _animator;
     private Rigidbody2D _rigidbody;
+    private bool isPause = false;
 
+    public Animator _animator;
     public Arrow ArrowPrefab;
     public Arrow Arrow { get; private set; }
     public Vector3 motionVec;
@@ -26,7 +27,6 @@ public class PlayerController : MonoBehaviour
         Arrow = Instantiate(ArrowPrefab);
         Arrow.Player = gameObject;
         Arrow.gameObject.SetActive(false);
-        // Debug.Log(Arrow.transform.position);
     }
 
     private void Awake()
@@ -37,9 +37,6 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        // Arrow.PlayerPosition -= CheckPosition;
-        // Arrow.PlayerPosition += CheckPosition;
-
         if (Input.GetKeyDown(KeyCode.C) && isGetArrow == true)
         {
             _animator.SetTrigger(PlayerAnimId.s_ShootReady);
@@ -48,7 +45,6 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.C) && isGetArrow == false)
         {
             _animator.SetTrigger(PlayerAnimId.s_RetrieveReady);
-
         }
     }
 
@@ -56,11 +52,6 @@ public class PlayerController : MonoBehaviour
     {
         ProcessMove();
     }
-
-    //public void CheckPosition()
-    //{
-    //    Debug.Log($"PlayerTransfrom : {transform.position}");
-    //}
 
     public void ProcessMove()
     {
@@ -99,13 +90,34 @@ public class PlayerController : MonoBehaviour
     {      
         if (collision.CompareTag("Arrow") )
         {
-            if( Arrow.IsRejection == false)
+            if (Arrow.IsRejection == false)
             {
-                Debug.Log("»≠ªÏ ∏‘¿Ω");
                 Arrow.gameObject.SetActive(false);
                 isGetArrow = true;
-
             }
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Snowball"))
+        {
+            _animator.SetTrigger(PlayerAnimId.s_PlayerDie);
+            collision.gameObject.SetActive(false);
+
+            gameObject.transform.GetChild(1).gameObject.SetActive(true);
+
+            isPause = true;
+            Time.timeScale = 0;
+        }
+
+        if (collision.gameObject.CompareTag("Boss"))
+        {
+            _animator.SetTrigger(PlayerAnimId.s_PlayerDie);
+            gameObject.transform.GetChild(1).gameObject.SetActive(true);
+
+            isPause = true;
+            Time.timeScale = 0;
         }
     }
 }
